@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class ITaskServiceImpl implements TaskService{
+public class TaskServiceImpl implements TaskService{
 
     private final TaskRepository taskRepository;
     private final EntityMapper mapper;

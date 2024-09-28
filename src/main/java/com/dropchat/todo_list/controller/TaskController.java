@@ -2,7 +2,6 @@ package com.dropchat.todo_list.controller;
 
 import com.dropchat.todo_list.converter.request.TaskRequestEntity;
 import com.dropchat.todo_list.converter.response.TaskResponseEntity;
-import com.dropchat.todo_list.service.ITaskServiceImpl;
 import com.dropchat.todo_list.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
