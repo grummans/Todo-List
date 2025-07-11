@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class TaskServiceImpl implements TaskService{
@@ -19,9 +21,14 @@ public class TaskServiceImpl implements TaskService{
     @Transactional
     public TaskResponseEntity createTask(TaskRequestEntity request) {
 
+        if (request.getTitle() == null || request.getTitle().isEmpty()) {
+            throw new IllegalArgumentException("Task title cannot be null or empty");
+        }
         TaskEntity task = mapper.toTaskEntity(request);
-        task.setTitle(request.getTitle());
-        task.setDescription(request.getDescription());
+        task.setTaskTitle(request.getTitle());
+        task.setTaskDescription(request.getDescription());
+        task.setUserId(1);
+        task.setCreateAt(LocalDateTime.now().toString());
         taskRepository.save(task);
 
         return mapper.toTaskResponseEntity(task);

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Task")
+@Table(name = "task")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,13 +16,19 @@ public class TaskEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    @Column(name = "task_id")
+    private int taskId;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "task_title", nullable = false)
+    private String taskTitle;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "task_description", nullable = false)
+    private String taskDescription;
+
+    @Column(name = "user_id", nullable = false)
+    private int userId;
+
+    @Column(name = "create_at", nullable = false)
+    private String createAt;
 
 }
