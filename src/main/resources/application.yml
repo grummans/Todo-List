@@ -1,0 +1,31 @@
+#spring.application.name=todo_list
+##################################
+##spring.datasource.url=jdbc:mariadb://localhost:3306/mydatabase
+#spring.datasource.url=jdbc:mariadb://192.168.1.102:3306/mydatabase
+#spring.datasource.hikari.username=grummans
+#spring.datasource.hikari.password=4634
+#spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+#spring.jpa.show-sql=true
+#spring.jpa.hibernate.ddl-auto=none
+#spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#
+#spring.main.banner-mode=off
+
+spring:
+  datasource:
+    url: jdbc:mariadb://192.168.1.102:3306/mydatabase
+    hikari:
+      username: grummans
+      password: "4634"
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  main:
+    banner-mode: off
+
+server:
+  port: 8085
