@@ -8,5 +8,5 @@ import java.util.List;
 public interface TaskService {
     TaskResponseEntity createTask(TaskRequestEntity request);
 
-//    List<TaskResponseEntity> getListTask
+    List<TaskResponseEntity> getListTask();
 }

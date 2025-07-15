@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class TaskResponseEntity {
+    private int taskId;
     private String taskTitle;
     private String taskDescription;
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -17,6 +18,7 @@ public class TaskServiceImpl implements TaskService{
 
     private final TaskRepository taskRepository;
     private final EntityMapper mapper;
+
     @Override
     @Transactional
     public TaskResponseEntity createTask(TaskRequestEntity request) {
@@ -33,5 +35,15 @@ public class TaskServiceImpl implements TaskService{
 
         return mapper.toTaskResponseEntity(task);
     }
+
+    @Override
+    public List<TaskResponseEntity> getListTask() {
+        List<TaskEntity> tasks = taskRepository.findAll();
+        List<TaskResponseEntity> taskResponses = tasks.stream()
+                .map(mapper::toTaskResponseEntity)
+                .toList();
+        return taskResponses;
+    }
+
 
 }
